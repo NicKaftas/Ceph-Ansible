@@ -1,0 +1,53 @@
+dummy:
+
+mon_group_name: mons
+osd_group_name: osds
+rgw_group_name: rgws
+mds_group_name: mdss
+mgr_group_name: mgrs
+
+ntp_service_enabled: true
+
+ntp_daemon_type: chronyd
+upgrade_ceph_packages: True 
+
+ceph_origin: repository
+ceph_repository: uca
+
+ceph_stable_repo_uca: "http://ubuntu-cloud.archive.canonical.com/ubuntu"
+ceph_stable_openstack_release_uca: pike
+ceph_stable_release_uca: "{{ ansible_lsb.codename }}-updates/{{ ceph_stable_openstack_release_uca }}"
+fsid: "{{ cluster_uuid.stdout }}"
+generate_fsid: true
+
+ceph_conf_key_directory: /etc/ceph
+
+monitor_interface: eth1
+
+journal_size: 5120 # OSD journal size in MB
+public_network: 83.212.72.0/21
+osd_mkfs_type: ext4
+osd_objectstore: bluestore
+
+radosgw_civetweb_port: 8080 #Den xreiazetai giati dilonei kati diaforetiko apo ayto pou nomiza
+radosgw_address: 83.212.72.72
+
+openstack_cinder_pool:
+  name: "volumes"
+  pg_num: "{{ osd_pool_default_pg_num }}"
+  pgp_num: "{{ osd_pool_default_pg_num }}"
+  rule_name: "replicated_rule"
+  type: 1
+  erasure_profile: ""
+  expected_num_objects: ""
+  application: "rbd"
+  size: "{{ osd_pool_default_size }}"
+
+openstack_pools:
+  - "{{ openstack_cinder_pool }}"
+
+#Iparxoune kapoia "error" ta opoia dior8onontai me tin pio domimeni dilosei ton variables
+
+
+
+
