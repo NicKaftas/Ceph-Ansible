@@ -46,7 +46,7 @@ openstack_cinder_pool:
 openstack_pools:
   - "{{ openstack_cinder_pool }}"
 
-#Iparxoune kapoia "error" ta opoia dior8onontai me tin pio domimeni dilosei ton variables
+#Iparxoune kapoia "la8oi" ta opoia dior8onontai me tin kaliteri  dilosi ton variables
 
 
 
