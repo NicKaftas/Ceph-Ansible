@@ -32,6 +32,7 @@ osd_objectstore: bluestore
 radosgw_civetweb_port: 8080 #Den xreiazetai giati dilonei kati diaforetiko apo ayto pou nomiza
 radosgw_address: 83.212.72.72
 
+openstack_config: true
 openstack_cinder_pool:
   name: "volumes"
   pg_num: "{{ osd_pool_default_pg_num }}"
